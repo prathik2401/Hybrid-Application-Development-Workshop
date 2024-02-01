@@ -1,58 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import Calculator from './Screens/Calculator';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './Screens/LoginScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* Image View */}
-      <View style={styles.imageContainer}>
-        <Image style={{width: 350, height: 80, justifyContent: 'center'}} source={require('./assets/logo (1).png')}/>
-      </View>
-
-      {/* Email Input View */}
-      <Text style={{paddingTop: 40, paddingLeft: 10, fontWeight: 'semibold', fontSize: 18}}>E-mail</Text>
-      <TextInput style={styles.emailInputContainer} placeholder='Enter your e-mail'></TextInput>
-
-      {/* Email Input View */}
-      <Text style={{paddingTop: 40, paddingLeft: 10, fontWeight: 'semibold', fontSize: 18}}>Password</Text>
-      <TextInput style={styles.emailInputContainer} placeholder='Enter your password' secureTextEntry={true}></TextInput>
-
-      {/* Submit button */}
-        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-          <TouchableOpacity style={styles.buttonContainer}>
-          <Text style={{color: 'white'}}>Submit</Text>
-          </TouchableOpacity> 
-        </View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="LoginScreen">
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Calculator" component={Calculator} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    margin: 20
-  },
-  imageContainer: {
-    marginTop: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  emailInputContainer: {
-    borderRadius: 50,
-    borderColor: '#1F2544',
-    borderWidth: 1.2,
-    width: 370,
-    height: 50,
-    paddingLeft: 20,
-  },
-  buttonContainer: {
-    marginTop: 40,
-    height: 50,
-    width: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#0f92c7',
-    borderRadius: 50,
-  }
-},
-);

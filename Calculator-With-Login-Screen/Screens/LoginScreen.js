@@ -1,14 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 
+
 export default function LoginScreen({ navigation }) {
+
     return (
       <View style={styles.container}>
         {/* Image View */}
         <View style={styles.imageContainer}>
           <Image style={{width: 350, height: 80, justifyContent: 'center'}} source={require('../assets/logo (1).png')}/>
         </View>
-  
+
         {/* Email Input View */}
         <Text style={{paddingTop: 40, paddingLeft: 10, fontWeight: 'semibold', fontSize: 18}}>E-mail</Text>
         <TextInput style={styles.emailInputContainer} placeholder='Enter your e-mail'></TextInput>

@@ -1,3 +1,7 @@
 Creating React Native Application: npx create-expo-app app_name
 
 Starting Application: npx expo start
+
+Social Media Application Plan
+
+Screen 1: Login Screen
